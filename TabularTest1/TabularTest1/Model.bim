@@ -5048,11 +5048,6 @@
             "expression": "SUM(fAPS_all[CommissionAmount]) + SUM(fRES_all[CommissionAmount])",
             "formatString": "#,0.00",
             "detailRowsDefinition": {}
-          },
-          {
-            "name": "Arne",
-            "expression": " 1",
-            "detailRowsDefinition": {}
           }
         ],
         "annotations": [

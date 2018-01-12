@@ -1,0 +1,7 @@
+C:\Users\bi-user\source\repos\TabularTest1\TabularTest1\bin\Model.asdatabase
+C:\Users\bi-user\source\repos\TabularTest1\TabularTest1\bin\Model.deploymenttargets
+C:\Users\bi-user\source\repos\TabularTest1\TabularTest1\bin\Model.deploymentoptions
+C:\Users\bi-user\source\repos\TabularTest1\TabularTest1\obj\Development\TabularTest1.smproj.CoreCompileInputs.cache
+C:\Users\bi-user\source\repos\TabularTest1\TabularTest1\obj\Development\Model.asdatabase
+C:\Users\bi-user\source\repos\TabularTest1\TabularTest1\obj\Development\Model.deploymentoptions
+C:\Users\bi-user\source\repos\TabularTest1\TabularTest1\obj\Development\Model.deploymenttargets

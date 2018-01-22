@@ -1406,7 +1406,8 @@
             "name": "MdlAvlidenUpphörtDatum",
             "dataType": "double",
             "sourceColumn": "MdlAvlidenUpphörtDatum",
-            "formatString": "0"
+            "formatString": "0",
+            "summarizeBy": "none"
           },
           {
             "name": "MdlStatusDatum",

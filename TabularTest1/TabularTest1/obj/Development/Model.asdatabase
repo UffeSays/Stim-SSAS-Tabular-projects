@@ -1239,12 +1239,14 @@
           {
             "name": "MdlAnslutTillDatum",
             "dataType": "dateTime",
-            "sourceColumn": "MdlAnslutTillDatum"
-          },
-          {
-            "name": "MdlAvliden",
-            "dataType": "string",
-            "sourceColumn": "MdlAvliden"
+            "sourceColumn": "MdlAnslutTillDatum",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1053\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "MdlStatus",
@@ -1279,12 +1281,26 @@
           {
             "name": "MdlFödelseDatum",
             "dataType": "dateTime",
-            "sourceColumn": "MdlFödelseDatum"
+            "sourceColumn": "MdlFödelseDatum",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1053\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "MdlAnslutenFrånDatum",
             "dataType": "dateTime",
-            "sourceColumn": "MdlAnslutenFrånDatum"
+            "sourceColumn": "MdlAnslutenFrånDatum",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1053\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
           },
           {
             "name": "MdlKön",
@@ -1343,6 +1359,84 @@
             "isDataTypeInferred": true,
             "expression": "YEAR(dIPBaseName[MdlAnslutenFrånDatum])",
             "summarizeBy": "none"
+          },
+          {
+            "name": "MdlMedlemsnr",
+            "dataType": "double",
+            "sourceColumn": "MdlMedlemsnr",
+            "formatString": "0"
+          },
+          {
+            "name": "MdlMedlemstyp",
+            "dataType": "string",
+            "sourceColumn": "MdlMedlemstyp"
+          },
+          {
+            "name": "MdlNamn",
+            "dataType": "string",
+            "sourceColumn": "MdlNamn"
+          },
+          {
+            "name": "MdlFolkbokföringLand",
+            "dataType": "string",
+            "sourceColumn": "MdlFolkbokföringLand"
+          },
+          {
+            "name": "MdlOrganisationsnr",
+            "dataType": "string",
+            "sourceColumn": "MdlOrganisationsnr"
+          },
+          {
+            "name": "MdlUppläggningsdatum",
+            "dataType": "dateTime",
+            "sourceColumn": "MdlUppläggningsdatum",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1053\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "MdlAvlidenUpphört",
+            "dataType": "string",
+            "sourceColumn": "MdlAvlidenUpphört"
+          },
+          {
+            "name": "MdlAvlidenUpphörtDatum",
+            "dataType": "double",
+            "sourceColumn": "MdlAvlidenUpphörtDatum",
+            "formatString": "0"
+          },
+          {
+            "name": "MdlStatusDatum",
+            "dataType": "dateTime",
+            "sourceColumn": "MdlStatusDatum",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1053\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "MdlStatusOrsaksdatum",
+            "dataType": "dateTime",
+            "sourceColumn": "MdlStatusOrsaksdatum",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1053\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "MdlLän",
+            "dataType": "string",
+            "sourceColumn": "MdlLän"
           }
         ],
         "partitions": [
@@ -1350,55 +1444,13 @@
             "name": "dIPBaseName",
             "dataView": "full",
             "source": {
-              "query": [
-                "SELECT [IPBaseKey]",
-                "      ,[IPBaseName]",
-                "      ,[IPBaseNameAndKey]",
-                "      ,Case WHEN [IPBDateofDeath] = '1899-12-30' THEN null else [IPBDateofDeath] END AS IPBDateofDeath",
-                "      ,[MdlFödelseDatum]",
-                "      ,[MdlAnslutenFrånDatum]",
-                "      ,[MdlAnslutTillDatum]",
-                "      ,[MdlAvliden]",
-                "      ,[MdlStatus]",
-                "      ,[MdlStatusOrsak]",
-                "      ,[MdlStatusAvslut]",
-                "      ,[MdlKön]",
-                "      ,[MdlSpråkKod]",
-                "      ,[MdlSällskapsbyteTillstim]",
-                "      ,[MdlStoppadUtbetalning]",
-                "      ,[MdlLandKod]",
-                "      ,[MdlSvenskOrt]",
-                "      ,[MdlPostNr]",
-                "      ,[MdlKommun]",
-                "  FROM [datamarts].[dIPBaseName]"
-              ],
+              "query": "SELECT * FROM [datamarts].[dIPBaseName]",
               "dataSource": "SqlServer beast datalake"
             },
             "annotations": [
               {
                 "name": "QueryEditorSerialization",
-                "value": [
-                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [IPBaseKey]",
-                  "      ,[IPBaseName]",
-                  "      ,[IPBaseNameAndKey]",
-                  "      ,Case WHEN [IPBDateofDeath] = '1899-12-30' THEN null else [IPBDateofDeath] END AS IPBDateofDeath",
-                  "      ,[MdlFödelseDatum]",
-                  "      ,[MdlAnslutenFrånDatum]",
-                  "      ,[MdlAnslutTillDatum]",
-                  "      ,[MdlAvliden]",
-                  "      ,[MdlStatus]",
-                  "      ,[MdlStatusOrsak]",
-                  "      ,[MdlStatusAvslut]",
-                  "      ,[MdlKön]",
-                  "      ,[MdlSpråkKod]",
-                  "      ,[MdlSällskapsbyteTillstim]",
-                  "      ,[MdlStoppadUtbetalning]",
-                  "      ,[MdlLandKod]",
-                  "      ,[MdlSvenskOrt]",
-                  "      ,[MdlPostNr]",
-                  "      ,[MdlKommun]",
-                  "  FROM [datamarts].[dIPBaseName]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
-                ]
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [datamarts].[dIPBaseName]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
               }
             ]
           }
@@ -1423,28 +1475,7 @@
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": [
-              "SELECT [IPBaseKey]",
-              "      ,[IPBaseName]",
-              "      ,[IPBaseNameAndKey]",
-              "      ,Case WHEN [IPBDateofDeath] = '1899-12-30' THEN null else [IPBDateofDeath] END AS IPBDateofDeath",
-              "      ,[MdlFödelseDatum]",
-              "      ,[MdlAnslutenFrånDatum]",
-              "      ,[MdlAnslutTillDatum]",
-              "      ,[MdlAvliden]",
-              "      ,[MdlStatus]",
-              "      ,[MdlStatusOrsak]",
-              "      ,[MdlStatusAvslut]",
-              "      ,[MdlKön]",
-              "      ,[MdlSpråkKod]",
-              "      ,[MdlSällskapsbyteTillstim]",
-              "      ,[MdlStoppadUtbetalning]",
-              "      ,[MdlLandKod]",
-              "      ,[MdlSvenskOrt]",
-              "      ,[MdlPostNr]",
-              "      ,[MdlKommun]",
-              "  FROM [datamarts].[dIPBaseName]"
-            ]
+            "value": "SELECT * FROM [datamarts].[dIPBaseName]"
           },
           {
             "name": "_TM_ExtProp_DbTableName",
@@ -1456,28 +1487,7 @@
           },
           {
             "name": "QueryEditorSerialization",
-            "value": [
-              "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [IPBaseKey]",
-              "      ,[IPBaseName]",
-              "      ,[IPBaseNameAndKey]",
-              "      ,Case WHEN [IPBDateofDeath] = '1899-12-30' THEN null else [IPBDateofDeath] END AS IPBDateofDeath",
-              "      ,[MdlFödelseDatum]",
-              "      ,[MdlAnslutenFrånDatum]",
-              "      ,[MdlAnslutTillDatum]",
-              "      ,[MdlAvliden]",
-              "      ,[MdlStatus]",
-              "      ,[MdlStatusOrsak]",
-              "      ,[MdlStatusAvslut]",
-              "      ,[MdlKön]",
-              "      ,[MdlSpråkKod]",
-              "      ,[MdlSällskapsbyteTillstim]",
-              "      ,[MdlStoppadUtbetalning]",
-              "      ,[MdlLandKod]",
-              "      ,[MdlSvenskOrt]",
-              "      ,[MdlPostNr]",
-              "      ,[MdlKommun]",
-              "  FROM [datamarts].[dIPBaseName]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
-            ]
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [datamarts].[dIPBaseName]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
           }
         ]
       },
@@ -5967,9 +5977,6 @@
                 "name": "MdlAnslutTillDatum"
               },
               {
-                "name": "MdlAvliden"
-              },
-              {
                 "name": "MdlLandKod"
               },
               {
@@ -6019,6 +6026,39 @@
               },
               {
                 "name": "MdlÅlder"
+              },
+              {
+                "name": "MdlAvlidenUpphört"
+              },
+              {
+                "name": "MdlAvlidenUpphörtDatum"
+              },
+              {
+                "name": "MdlFolkbokföringLand"
+              },
+              {
+                "name": "MdlLän"
+              },
+              {
+                "name": "MdlMedlemsnr"
+              },
+              {
+                "name": "MdlMedlemstyp"
+              },
+              {
+                "name": "MdlNamn"
+              },
+              {
+                "name": "MdlOrganisationsnr"
+              },
+              {
+                "name": "MdlStatusDatum"
+              },
+              {
+                "name": "MdlStatusOrsaksdatum"
+              },
+              {
+                "name": "MdlUppläggningsdatum"
               }
             ],
             "hierarchies": [

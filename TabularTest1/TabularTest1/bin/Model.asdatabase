@@ -1364,7 +1364,8 @@
             "name": "MdlMedlemsnr",
             "dataType": "double",
             "sourceColumn": "MdlMedlemsnr",
-            "formatString": "0"
+            "formatString": "0",
+            "summarizeBy": "none"
           },
           {
             "name": "MdlMedlemstyp",

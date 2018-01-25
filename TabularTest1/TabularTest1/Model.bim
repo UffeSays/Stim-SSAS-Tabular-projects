@@ -5143,15 +5143,21 @@
             "name": "udd_troy_true_amounts_by_distkey",
             "dataView": "full",
             "source": {
-              "query": " SELECT [datamarts].[udd_troy_true_amounts_by_distkey].* FROM [datamarts].[udd_troy_true_amounts_by_distkey] ",
+              "query": "SELECT [datamarts].[fTroyTrueAmountsByDistkey].* FROM [datamarts].[fTroyTrueAmountsByDistkey]",
               "dataSource": "SqlServer beast datalake"
-            }
+            },
+            "annotations": [
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [datamarts].[fTroyTrueAmountsByDistkey].* FROM [datamarts].[fTroyTrueAmountsByDistkey]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
           }
         ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [datamarts].[udd_troy_true_amounts_by_distkey].* FROM [datamarts].[udd_troy_true_amounts_by_distkey] "
+            "value": "SELECT [datamarts].[fTroyTrueAmountsByDistkey].* FROM [datamarts].[fTroyTrueAmountsByDistkey]"
           },
           {
             "name": "_TM_ExtProp_DbTableName",
@@ -5160,6 +5166,10 @@
           {
             "name": "_TM_ExtProp_DbSchemaName",
             "value": "datamarts"
+          },
+          {
+            "name": "QueryEditorSerialization",
+            "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [datamarts].[fTroyTrueAmountsByDistkey].* FROM [datamarts].[fTroyTrueAmountsByDistkey]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
           }
         ]
       },

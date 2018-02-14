@@ -894,6 +894,18 @@
               "                \"Helår\"",
               "))))"
             ]
+          },
+          {
+            "name": "DistDateEventAligned",
+            "dataType": "dateTime",
+            "sourceColumn": "DistDateEventAligned",
+            "formatString": "yyyy-MM-dd",
+            "annotations": [
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeCustom\"><DateTimes><DateTime LCID=\"1053\" Group=\"ShortDate\" FormatString=\"yyyy-MM-dd\" /></DateTimes></Format>"
+              }
+            ]
           }
         ],
         "partitions": [
@@ -937,11 +949,6 @@
             "name": "hDistributionDate",
             "levels": [
               {
-                "name": "DistDate",
-                "ordinal": 3,
-                "column": "DistDate"
-              },
-              {
                 "name": "DistYear",
                 "ordinal": 0,
                 "column": "DistYear"
@@ -955,6 +962,11 @@
                 "name": "DistMonth",
                 "ordinal": 2,
                 "column": "DistMonth"
+              },
+              {
+                "name": "DistDateEventAligned",
+                "ordinal": 3,
+                "column": "DistDateEventAligned"
               }
             ]
           }

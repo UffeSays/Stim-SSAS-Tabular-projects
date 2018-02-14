@@ -809,7 +809,7 @@
             "isDataTypeInferred": true,
             "isHidden": true,
             "isNullable": false,
-            "expression": "YEAR(dDistribution[DistDate])",
+            "expression": "YEAR(dDistribution[DistDateEventAligned])",
             "summarizeBy": "none"
           },
           {
@@ -818,7 +818,7 @@
             "dataType": "string",
             "isDataTypeInferred": true,
             "isHidden": true,
-            "expression": "FORMAT(dDistribution[DistDate], \"YYYY-MM\")"
+            "expression": "FORMAT(dDistribution[DistDateEventAligned], \"YYYY-MM\")"
           },
           {
             "type": "calculated",
@@ -826,7 +826,7 @@
             "dataType": "string",
             "isDataTypeInferred": true,
             "isHidden": true,
-            "expression": "FORMAT(dDistribution[DistDate], \"YYYY\") & \"-Q\" & ROUNDUP(MONTH(dDistribution[DistDate])/3,0)"
+            "expression": "FORMAT(dDistribution[DistDateEventAligned], \"YYYY\") & \"-Q\" & ROUNDUP(MONTH(dDistribution[DistDateEventAligned])/3,0)"
           },
           {
             "type": "calculated",
@@ -842,7 +842,7 @@
             "dataType": "string",
             "isDataTypeInferred": true,
             "isHidden": true,
-            "expression": "\"Q\" & ROUNDUP(MONTH(dDistribution[DistDate])/3,0)"
+            "expression": "\"Q\" & ROUNDUP(MONTH(dDistribution[DistDateEventAligned])/3,0)"
           },
           {
             "type": "calculated",
@@ -850,7 +850,7 @@
             "dataType": "string",
             "isDataTypeInferred": true,
             "isHidden": true,
-            "expression": "FORMAT(dDistribution[DistDate], \"MMMM\")",
+            "expression": "FORMAT(dDistribution[DistDateEventAligned], \"MMMM\")",
             "sortByColumn": "DistMonthNr"
           },
           {
@@ -859,7 +859,7 @@
             "dataType": "int64",
             "isDataTypeInferred": true,
             "isHidden": true,
-            "expression": "MONTH(dDistribution[DistDate])"
+            "expression": "MONTH(dDistribution[DistDateEventAligned])"
           },
           {
             "name": "DistEventKey",

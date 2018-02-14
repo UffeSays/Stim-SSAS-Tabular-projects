@@ -5953,6 +5953,9 @@
               },
               {
                 "name": "DistYearQuarter"
+              },
+              {
+                "name": "DistDateEventAligned"
               }
             ],
             "hierarchies": [

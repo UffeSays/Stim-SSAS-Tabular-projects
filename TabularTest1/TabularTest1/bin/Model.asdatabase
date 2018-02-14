@@ -950,11 +950,6 @@
             "name": "hDistributionDate",
             "levels": [
               {
-                "name": "DistDate",
-                "ordinal": 3,
-                "column": "DistDate"
-              },
-              {
                 "name": "DistYear",
                 "ordinal": 0,
                 "column": "DistYear"
@@ -968,6 +963,11 @@
                 "name": "DistMonth",
                 "ordinal": 2,
                 "column": "DistMonth"
+              },
+              {
+                "name": "DistDateEventAligned",
+                "ordinal": 3,
+                "column": "DistDateEventAligned"
               }
             ]
           }
@@ -5954,6 +5954,9 @@
               },
               {
                 "name": "DistYearQuarter"
+              },
+              {
+                "name": "DistDateEventAligned"
               }
             ],
             "hierarchies": [
